@@ -1,6 +1,6 @@
-export async function getCurrentWeather(locationQuery) {
+export async function getForecastedWeather(locationQuery) {
   let baseUrl =
-    "http://api.weatherapi.com/v1/current.json?key=4e0461a2596747cfb3e125853230404&q=";
+    "http://api.weatherapi.com/v1/forecast.json?key=4e0461a2596747cfb3e125853230404&days=14&q=";
   let searchUrl = `${baseUrl}${locationQuery}`;
   console.log(searchUrl);
   try {
