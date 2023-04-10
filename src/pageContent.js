@@ -1,4 +1,5 @@
 import { createDiv } from "./helperFunctions";
+import { getCurrentWeather } from "./weatherApi";
 
 export function header() {
   const mainSection = createDiv("header");
@@ -6,3 +7,5 @@ export function header() {
 
   return mainSection;
 }
+
+getCurrentWeather("New Westminster");
