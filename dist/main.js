@@ -1,1 +1,1 @@
-console.log("weahter");
+(()=>{"use strict";!function(){const t=document.querySelector(".application"),e=function(){const t=function(t,e){const n=document.createElement("div");return n.className="header",n.id=void 0,n}();return t.textContent="Hello",t}();t.appendChild(e)}()})();
