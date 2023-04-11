@@ -6,7 +6,6 @@ export async function getForecastedWeather(locationQuery) {
   try {
     const response = await fetch(searchUrl, { mode: "cors" });
     const weatherData = await response.json();
-    //set locations on page with weather data as needed or export to set on another module
     currentWeatherStats(weatherData.current, weatherData.location);
     futureWeather(weatherData.forecast);
   } catch (error) {
@@ -24,6 +23,8 @@ function currentWeatherStats(currentWeather, locationData) {
   console.log(locationData.localtime);
 }
 
-function futureWeather(futureWeatherData) {
-  console.log(futureWeatherData);
+function futureWeather(forecast) {
+  console.log(forecast);
+  console.log(forecast.forecastday[1]);
+  console.log(forecast.forecastday[2]);
 }
