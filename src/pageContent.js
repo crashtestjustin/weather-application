@@ -1,9 +1,26 @@
-import { createDiv } from "./helperFunctions";
+import { createDiv, createInput, createButton } from "./helperFunctions";
 import { getForecastedWeather } from "./weatherApi";
+import { processSearch } from "./processing";
 
 export function header() {
   const mainSection = createDiv("header");
   mainSection.textContent = "Header";
+
+  const searchBar = createInput(
+    "text",
+    "search-bar",
+    "search-bar",
+    "Enter Location"
+  );
+  mainSection.appendChild(searchBar);
+
+  const searchBtn = createButton("search-button", "Search");
+  mainSection.appendChild(searchBtn);
+
+  searchBtn.addEventListener("click", (e) => {
+    processSearch(searchBar.value);
+    getForecastedWeather(searchBar.value);
+  });
 
   return mainSection;
 }
