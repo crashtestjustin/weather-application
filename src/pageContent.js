@@ -1,6 +1,6 @@
 import { createDiv, createInput, createButton } from "./helperFunctions";
 import { getForecastedWeather } from "./weatherApi";
-import { processSearch } from "./processing";
+import { setWeatherMode } from "./processing";
 
 export function header() {
   const mainSection = createDiv("header");
@@ -18,8 +18,24 @@ export function header() {
   mainSection.appendChild(searchBtn);
 
   searchBtn.addEventListener("click", (e) => {
-    processSearch(searchBar.value);
+    // processSearch(searchBar.value);
     getForecastedWeather(searchBar.value);
+  });
+
+  const celcius = createButton("set-c", "C");
+  celcius.selected = true;
+  mainSection.appendChild(celcius);
+
+  celcius.addEventListener("click", (e) => {
+    setWeatherMode("C");
+  });
+
+  const farenheit = createButton("set-f", "F");
+  farenheit.selected = false;
+  mainSection.appendChild(farenheit);
+
+  farenheit.addEventListener("click", (e) => {
+    setWeatherMode("F");
   });
 
   return mainSection;
