@@ -1,11 +1,19 @@
 import { weathermode } from "./processing";
 
-let previousSearch;
+export let previousSearch = ["New York City"];
 
 export async function getForecastedWeather(locationQuery) {
+  let searchQuery;
+  if (locationQuery === undefined) {
+    searchQuery = previousSearch;
+  } else {
+    searchQuery = locationQuery;
+    previousSearch = [];
+    previousSearch.push(locationQuery);
+  }
   let baseUrl =
     "http://api.weatherapi.com/v1/forecast.json?key=4e0461a2596747cfb3e125853230404&days=3&q=";
-  let searchUrl = `${baseUrl}${locationQuery}`;
+  let searchUrl = `${baseUrl}${searchQuery}`;
   console.log(searchUrl);
   try {
     const response = await fetch(searchUrl, { mode: "cors" });
@@ -15,6 +23,7 @@ export async function getForecastedWeather(locationQuery) {
   } catch (error) {
     console.log(error);
   }
+  console.log(previousSearch);
 }
 
 function currentWeatherStats(currentWeather, locationData) {

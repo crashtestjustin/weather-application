@@ -1,3 +1,4 @@
+import { getForecastedWeather } from "./weatherApi";
 export let weathermode = ["C"];
 
 export function setWeatherMode(newMode) {
@@ -9,11 +10,13 @@ export function setWeatherMode(newMode) {
   console.log(weathermode);
 
   if (weathermode.includes("C")) {
+    getForecastedWeather();
     cBtn.style.backgroundColor = "#000000";
     cBtn.style.color = "#ffffff";
     fBtn.style.backgroundColor = "#ffffff";
     fBtn.style.color = "#000000";
   } else {
+    getForecastedWeather();
     cBtn.style.backgroundColor = "#ffffff";
     cBtn.style.color = "#000000";
     fBtn.style.backgroundColor = "#000000";

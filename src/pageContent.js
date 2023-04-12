@@ -14,6 +14,12 @@ export function header() {
   );
   mainSection.appendChild(searchBar);
 
+  searchBar.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && document.activeElement === searchBar) {
+      getForecastedWeather(searchBar.value);
+    }
+  });
+
   const searchBtn = createButton("search-button", "Search");
   mainSection.appendChild(searchBtn);
 
@@ -66,4 +72,4 @@ export function footer() {
   return mainSection;
 }
 
-getForecastedWeather("V7M");
+getForecastedWeather();
