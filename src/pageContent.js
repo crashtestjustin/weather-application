@@ -4,7 +4,6 @@ import { setWeatherMode } from "./processing";
 
 export function header() {
   const mainSection = createDiv("header");
-  mainSection.textContent = "Header";
 
   const searchBar = createInput(
     "text",

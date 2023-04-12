@@ -11,15 +11,15 @@ export function setWeatherMode(newMode) {
 
   if (weathermode.includes("C")) {
     getForecastedWeather();
-    cBtn.style.backgroundColor = "#000000";
-    cBtn.style.color = "#ffffff";
-    fBtn.style.backgroundColor = "#ffffff";
-    fBtn.style.color = "#000000";
+    cBtn.style.backgroundColor = "var(--day-button-bg-color)";
+    // cBtn.style.color = "#ffffff";
+    fBtn.style.backgroundColor = "var(--day-bg-color)";
+    // fBtn.style.color = "#ffffff";
   } else {
     getForecastedWeather();
-    cBtn.style.backgroundColor = "#ffffff";
-    cBtn.style.color = "#000000";
-    fBtn.style.backgroundColor = "#000000";
-    fBtn.style.color = "#ffffff";
+    cBtn.style.backgroundColor = "var(--day-bg-color)";
+    // cBtn.style.color = "#ffffff";
+    fBtn.style.backgroundColor = "var(--day-button-bg-color)";
+    // fBtn.style.color = "#ffffff";
   }
 }
