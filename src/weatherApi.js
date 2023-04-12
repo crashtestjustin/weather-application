@@ -4,7 +4,7 @@ export let previousSearch = ["New York City"];
 
 export async function getForecastedWeather(locationQuery) {
   let searchQuery;
-  if (locationQuery === undefined) {
+  if (locationQuery === undefined || locationQuery === "") {
     searchQuery = previousSearch;
   } else {
     searchQuery = locationQuery;
