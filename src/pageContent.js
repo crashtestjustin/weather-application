@@ -126,9 +126,19 @@ export function body() {
   const upcomingForecastedWeatherDiv = createDiv("upcoming-forecasted-weather");
   upcomingForecastedWeatherDiv.textContent = `Upcoming Forecasted Weather`;
   const tomorrowForecast = createDiv("tomorrow-forecast");
-  tomorrowForecast.textContent = "Tomorrow";
+  const tomIcon = createDiv("tomorrow-icon");
+  tomIcon.textContent = "[weathericon here]";
+  const tomDate = createDiv("tomorrow-date");
+  const tomHigh = createDiv("tom-high");
+  const tomLow = createDiv("tom-low");
+  tomorrowForecast.append(tomIcon, tomDate, tomHigh, tomLow);
   const twoDaysforecast = createDiv("two-days-forecast");
-  twoDaysforecast.textContent = "(Date for two days away)";
+  const twoDaysIcon = createDiv("2-days-icon");
+  twoDaysIcon.textContent = "[weathericon here]";
+  const twoDaysDate = createDiv("2-days-date");
+  const twoDaysHigh = createDiv("2-days-high");
+  const twoDaysLow = createDiv("2-days-low");
+  twoDaysforecast.append(twoDaysIcon, twoDaysDate, twoDaysHigh, twoDaysLow);
   upcomingForecastedWeatherDiv.append(tomorrowForecast, twoDaysforecast);
   mainSection.appendChild(upcomingForecastedWeatherDiv);
 

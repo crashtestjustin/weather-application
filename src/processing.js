@@ -46,3 +46,69 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
     lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
   }
 }
+
+export function setForecastedWeather(forecast) {
+  const tomorrowWeather = document.querySelector(".tomorrow-forecast");
+  const tomForecastEls = tomorrowWeather.querySelectorAll("div");
+  const twoDaysWeather = document.querySelector(".two-days-forecast");
+  const twoDaysForecastEls = twoDaysWeather.querySelectorAll("div");
+
+  let tempC;
+  weathermode.includes("C") ? (tempC = true) : (tempC = false);
+
+  for (let i = 0; i < tomForecastEls.length; i++) {
+    console.log(tomForecastEls[i]);
+    if (i === 1) {
+      tomForecastEls[i].textContent = forecast.forecastday[1].date;
+    } else if (i === 2) {
+      if (tempC) {
+        tomForecastEls[
+          i
+        ].textContent = `H: ${forecast.forecastday[1].day.maxtemp_c}°C`;
+      } else {
+        tomForecastEls[
+          i
+        ].textContent = `H: ${forecast.forecastday[1].day.maxtemp_f}°F`;
+      }
+    } else if (i === 3) {
+      if (tempC) {
+        tomForecastEls[
+          i
+        ].textContent = `L: ${forecast.forecastday[1].day.mintemp_c}°C`;
+      } else {
+        tomForecastEls[
+          i
+        ].textContent = `L: ${forecast.forecastday[1].day.mintemp_f}°F`;
+      }
+    }
+  }
+
+  //   twoDaysWeather.textContent = forecast.forecastday[2].date;
+
+  for (let i = 0; i < twoDaysForecastEls.length; i++) {
+    console.log(twoDaysForecastEls[i]);
+    if (i === 1) {
+      twoDaysForecastEls[i].textContent = forecast.forecastday[2].date;
+    } else if (i === 2) {
+      if (tempC) {
+        twoDaysForecastEls[
+          i
+        ].textContent = `H: ${forecast.forecastday[2].day.maxtemp_c}°C`;
+      } else {
+        twoDaysForecastEls[
+          i
+        ].textContent = `H: ${forecast.forecastday[2].day.maxtemp_f}°F`;
+      }
+    } else if (i === 3) {
+      if (tempC) {
+        twoDaysForecastEls[
+          i
+        ].textContent = `L: ${forecast.forecastday[2].day.mintemp_c}°C`;
+      } else {
+        twoDaysForecastEls[
+          i
+        ].textContent = `L: ${forecast.forecastday[2].day.mintemp_f}°F`;
+      }
+    }
+  }
+}

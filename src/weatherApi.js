@@ -1,4 +1,8 @@
-import { weathermode, setCurrentWeather } from "./processing";
+import {
+  weathermode,
+  setCurrentWeather,
+  setForecastedWeather,
+} from "./processing";
 
 export let previousSearch = ["New York City"];
 
@@ -18,12 +22,13 @@ export async function getForecastedWeather(locationQuery) {
   try {
     const response = await fetch(searchUrl, { mode: "cors" });
     const weatherData = await response.json();
-    currentWeatherStats(weatherData.current, weatherData.location);
     setCurrentWeather(
       weatherData.current,
       weatherData.location,
       weatherData.forecast
     );
+    setForecastedWeather(weatherData.forecast);
+    currentWeatherStats(weatherData.current, weatherData.location);
     futureWeather(weatherData.forecast);
   } catch (error) {
     console.log(error);
