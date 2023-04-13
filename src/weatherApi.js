@@ -1,8 +1,4 @@
-import {
-  weathermode,
-  setCurrentWeather,
-  setForecastedWeather,
-} from "./processing";
+import { setCurrentWeather, setForecastedWeather } from "./processing";
 
 export let previousSearch = ["New York City"];
 
@@ -28,24 +24,9 @@ export async function getForecastedWeather(locationQuery) {
       weatherData.forecast
     );
     setForecastedWeather(weatherData.forecast);
-    currentWeatherStats(weatherData.current, weatherData.location);
     futureWeather(weatherData.forecast);
   } catch (error) {
     console.log(error);
-  }
-  console.log(previousSearch);
-}
-
-function currentWeatherStats(currentWeather, locationData) {
-  console.log(locationData.name);
-  console.log(locationData.localtime);
-  console.log(`Weather Condition: ${currentWeather.condition.text}`);
-  if (weathermode.includes("C")) {
-    console.log(`Current Temp: ${currentWeather.temp_c}C`);
-    console.log(`Feels Like: ${currentWeather.feelslike_c}C`);
-  } else {
-    console.log(`Current Temp: ${currentWeather.temp_f}F`);
-    console.log(`Feels Like: ${currentWeather.feelslike_f}F`);
   }
 }
 

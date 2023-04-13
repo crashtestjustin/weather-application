@@ -57,7 +57,6 @@ export function setForecastedWeather(forecast) {
   weathermode.includes("C") ? (tempC = true) : (tempC = false);
 
   for (let i = 0; i < tomForecastEls.length; i++) {
-    console.log(tomForecastEls[i]);
     if (i === 1) {
       tomForecastEls[i].textContent = forecast.forecastday[1].date;
     } else if (i === 2) {
@@ -84,7 +83,6 @@ export function setForecastedWeather(forecast) {
   }
 
   for (let i = 0; i < twoDaysForecastEls.length; i++) {
-    console.log(twoDaysForecastEls[i]);
     if (i === 1) {
       twoDaysForecastEls[i].textContent = forecast.forecastday[2].date;
     } else if (i === 2) {
