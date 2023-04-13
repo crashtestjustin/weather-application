@@ -51,19 +51,18 @@ export function body() {
 
   const currentWeatherDiv = createDiv("current-weather");
   const location = createDiv("city-location");
-  location.textContent = "City: ";
+  const time = createDiv("city-time");
   const weatherCondition = createDiv("weather-condition");
-  weatherCondition.textContent = "Weather Condition: ";
   const currentTemperature = createDiv("current-temp");
-  currentTemperature.textContent = "Current Temperature: ";
+  const feelsLike = createDiv("feels-like");
   const highTemp = createDiv("high-temp");
-  highTemp.textContent = "H: ";
   const lowTemp = createDiv("low-temp");
-  lowTemp.textContent = "L: ";
   currentWeatherDiv.append(
     location,
+    time,
     weatherCondition,
     currentTemperature,
+    feelsLike,
     highTemp,
     lowTemp
   );
