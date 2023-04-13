@@ -8,3 +8,4 @@ To DO List:
 - add intial styling to main div and footer
 - update styling to include icons
 - add loading animation to page or weather elements
+  yeah sure thing
