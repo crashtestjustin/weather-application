@@ -52,6 +52,11 @@ button.set-f {
   margin-top: 1rem;
 }
 
+.current-weather,
+.forecasted-weather {
+  margin: 0 0 10px 0;
+}
+
 .footer {
   margin-top: auto;
 }
