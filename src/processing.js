@@ -83,8 +83,6 @@ export function setForecastedWeather(forecast) {
     }
   }
 
-  //   twoDaysWeather.textContent = forecast.forecastday[2].date;
-
   for (let i = 0; i < twoDaysForecastEls.length; i++) {
     console.log(twoDaysForecastEls[i]);
     if (i === 1) {
