@@ -120,12 +120,14 @@ export function setForecastedWeather(forecast) {
 export function getTodayForecast(forecast) {
   const hourTemps = document.querySelectorAll(".hour-temp");
   const hourIcon = document.querySelectorAll(".hour-icon");
+  const hourTime = document.querySelectorAll(".hour-time");
 
   let tempC;
   weathermode.includes("C") ? (tempC = true) : (tempC = false);
 
   for (let i = 0; i < hourTemps.length; i++) {
     hourIcon[i].src = forecast.forecastday[0].hour[i].condition.icon;
+    hourTime[i].textContent = forecast.forecastday[0].hour[i].time.slice(10);
     if (tempC) {
       hourTemps[i].textContent = `${forecast.forecastday[0].hour[i].temp_c}°C`;
     } else {

@@ -83,8 +83,10 @@ export function body() {
     todayForecastedWeatherDiv.appendChild(hourDiv);
     const hourIcon = createImg("hour-icon");
     const hourTemp = createDiv("hour-temp");
+    const hourTime = createDiv("hour-time");
     hourDiv.appendChild(hourIcon);
     hourDiv.appendChild(hourTemp);
+    hourDiv.appendChild(hourTime);
   }
   mainSection.appendChild(todayForecastedWeatherDiv);
 
