@@ -2,11 +2,13 @@
   --day-bg-color: #9cd6fa;
   --day-button-bg-color: #52b9f9;
   --day-element-border: #c3e8ff;
+  --main-font: "Space Grotesk", sans-serif;
 }
 
 body {
   margin: 0;
   background-color: var(--day-bg-color);
+  font-family: var(--main-font);
 }
 
 .application {
