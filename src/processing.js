@@ -27,6 +27,9 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
   const locationTime = document.querySelector(".city-time");
   locationTime.textContent = locationData.localtime.slice(10);
 
+  const currentWeatherIcon = document.querySelector(".current-icon");
+  currentWeatherIcon.src = forecastData.forecastday[0].day.condition.icon;
+
   const weatherCondition = document.querySelector(".weather-condition");
   weatherCondition.textContent = currentWeather.condition.text;
 
@@ -52,14 +55,19 @@ export function setForecastedWeather(forecast) {
   const tomForecastEls = tomorrowWeather.querySelectorAll("div");
   const twoDaysWeather = document.querySelector(".two-days-forecast");
   const twoDaysForecastEls = twoDaysWeather.querySelectorAll("div");
+  const tomIcon = tomorrowWeather.querySelector(".tomorrow-icon");
+  const twoDaysIcon = twoDaysWeather.querySelector(".two-days-icon");
+  console.log(forecast.forecastday);
+  tomIcon.src = forecast.forecastday[1].day.condition.icon;
+  twoDaysIcon.src = forecast.forecastday[2].day.condition.icon;
 
   let tempC;
   weathermode.includes("C") ? (tempC = true) : (tempC = false);
 
   for (let i = 0; i < tomForecastEls.length; i++) {
-    if (i === 1) {
+    if (i === 0) {
       tomForecastEls[i].textContent = forecast.forecastday[1].date;
-    } else if (i === 2) {
+    } else if (i === 1) {
       if (tempC) {
         tomForecastEls[
           i
@@ -69,7 +77,7 @@ export function setForecastedWeather(forecast) {
           i
         ].textContent = `H: ${forecast.forecastday[1].day.maxtemp_f}°F`;
       }
-    } else if (i === 3) {
+    } else if (i === 2) {
       if (tempC) {
         tomForecastEls[
           i
@@ -83,9 +91,9 @@ export function setForecastedWeather(forecast) {
   }
 
   for (let i = 0; i < twoDaysForecastEls.length; i++) {
-    if (i === 1) {
+    if (i === 0) {
       twoDaysForecastEls[i].textContent = forecast.forecastday[2].date;
-    } else if (i === 2) {
+    } else if (i === 1) {
       if (tempC) {
         twoDaysForecastEls[
           i
@@ -95,7 +103,7 @@ export function setForecastedWeather(forecast) {
           i
         ].textContent = `H: ${forecast.forecastday[2].day.maxtemp_f}°F`;
       }
-    } else if (i === 3) {
+    } else if (i === 2) {
       if (tempC) {
         twoDaysForecastEls[
           i
@@ -105,6 +113,23 @@ export function setForecastedWeather(forecast) {
           i
         ].textContent = `L: ${forecast.forecastday[2].day.mintemp_f}°F`;
       }
+    }
+  }
+}
+
+export function getTodayForecast(forecast) {
+  const hourTemps = document.querySelectorAll(".hour-temp");
+  const hourIcon = document.querySelectorAll(".hour-icon");
+
+  let tempC;
+  weathermode.includes("C") ? (tempC = true) : (tempC = false);
+
+  for (let i = 0; i < hourTemps.length; i++) {
+    hourIcon[i].src = forecast.forecastday[0].hour[i].condition.icon;
+    if (tempC) {
+      hourTemps[i].textContent = `${forecast.forecastday[0].hour[i].temp_c}°C`;
+    } else {
+      hourTemps[i].textContent = `${forecast.forecastday[0].hour[i].temp_f}°F`;
     }
   }
 }
