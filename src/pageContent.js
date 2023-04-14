@@ -1,4 +1,9 @@
-import { createDiv, createInput, createButton } from "./helperFunctions";
+import {
+  createDiv,
+  createInput,
+  createButton,
+  createImg,
+} from "./helperFunctions";
 import { getForecastedWeather } from "./weatherApi";
 import { setWeatherMode } from "./processing";
 
@@ -23,7 +28,6 @@ export function header() {
   mainSection.appendChild(searchBtn);
 
   searchBtn.addEventListener("click", (e) => {
-    // processSearch(searchBar.value);
     getForecastedWeather(searchBar.value);
   });
 
@@ -52,6 +56,7 @@ export function body() {
   const currentWeatherDiv = createDiv("current-weather");
   const location = createDiv("city-location");
   const time = createDiv("city-time");
+  const currentWeatherIcon = createImg("current-icon");
   const weatherCondition = createDiv("weather-condition");
   const currentTemperature = createDiv("current-temp");
   const feelsLike = createDiv("feels-like");
@@ -60,6 +65,7 @@ export function body() {
   currentWeatherDiv.append(
     location,
     time,
+    currentWeatherIcon,
     weatherCondition,
     currentTemperature,
     feelsLike,
@@ -71,69 +77,28 @@ export function body() {
 
   const todayForecastedWeatherDiv = createDiv("forecasted-weather");
   todayForecastedWeatherDiv.textContent = `Today Forecasted Weather`;
-  const hour0 = createDiv("hour");
-  const hour1 = createDiv("hour");
-  const hour2 = createDiv("hour");
-  const hour3 = createDiv("hour");
-  const hour4 = createDiv("hour");
-  const hour5 = createDiv("hour");
-  const hour6 = createDiv("hour");
-  const hour7 = createDiv("hour");
-  const hour8 = createDiv("hour");
-  const hour9 = createDiv("hour");
-  const hour10 = createDiv("hour");
-  const hour11 = createDiv("hour");
-  const hour12 = createDiv("hour");
-  const hour13 = createDiv("hour");
-  const hour14 = createDiv("hour");
-  const hour15 = createDiv("hour");
-  const hour16 = createDiv("hour");
-  const hour17 = createDiv("hour");
-  const hour18 = createDiv("hour");
-  const hour19 = createDiv("hour");
-  const hour20 = createDiv("hour");
-  const hour21 = createDiv("hour");
-  const hour22 = createDiv("hour");
-  const hour23 = createDiv("hour");
-  todayForecastedWeatherDiv.append(
-    hour0,
-    hour1,
-    hour2,
-    hour3,
-    hour4,
-    hour5,
-    hour6,
-    hour7,
-    hour8,
-    hour9,
-    hour10,
-    hour11,
-    hour12,
-    hour13,
-    hour14,
-    hour15,
-    hour16,
-    hour17,
-    hour18,
-    hour19,
-    hour20,
-    hour21,
-    hour22,
-    hour23
-  );
+
+  for (let i = 0; i < 24; i++) {
+    const hourDiv = createDiv("hour");
+    todayForecastedWeatherDiv.appendChild(hourDiv);
+    const hourIcon = createImg("hour-icon");
+    const hourTemp = createDiv("hour-temp");
+    hourDiv.appendChild(hourIcon);
+    hourDiv.appendChild(hourTemp);
+  }
   mainSection.appendChild(todayForecastedWeatherDiv);
 
   const upcomingForecastedWeatherDiv = createDiv("upcoming-forecasted-weather");
   upcomingForecastedWeatherDiv.textContent = `Upcoming Forecasted Weather`;
   const tomorrowForecast = createDiv("tomorrow-forecast");
-  const tomIcon = createDiv("tomorrow-icon");
+  const tomIcon = createImg("tomorrow-icon");
   tomIcon.textContent = "[weathericon here]";
   const tomDate = createDiv("tomorrow-date");
   const tomHigh = createDiv("tom-high");
   const tomLow = createDiv("tom-low");
   tomorrowForecast.append(tomIcon, tomDate, tomHigh, tomLow);
   const twoDaysforecast = createDiv("two-days-forecast");
-  const twoDaysIcon = createDiv("2-days-icon");
+  const twoDaysIcon = createImg("two-days-icon");
   twoDaysIcon.textContent = "[weathericon here]";
   const twoDaysDate = createDiv("2-days-date");
   const twoDaysHigh = createDiv("2-days-high");
