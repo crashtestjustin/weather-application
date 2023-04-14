@@ -6,6 +6,14 @@ export function createDiv(className, idName) {
   return div;
 }
 
+export function createImg(className, idName) {
+  const img = new Image();
+  img.className = className;
+  img.id = idName;
+  img.id === "undefined" ? (img.id = className) : "";
+  return img;
+}
+
 export function createInput(inputType, inputId, inputName, inputPlaceholder) {
   const input = document.createElement("input");
   input.type = inputType;
