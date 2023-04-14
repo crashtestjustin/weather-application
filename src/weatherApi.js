@@ -1,4 +1,8 @@
-import { setCurrentWeather, setForecastedWeather } from "./processing";
+import {
+  setCurrentWeather,
+  setForecastedWeather,
+  getTodayForecast,
+} from "./processing";
 
 export let previousSearch = ["New York City"];
 
@@ -24,14 +28,8 @@ export async function getForecastedWeather(locationQuery) {
       weatherData.forecast
     );
     setForecastedWeather(weatherData.forecast);
-    futureWeather(weatherData.forecast);
+    getTodayForecast(weatherData.forecast);
   } catch (error) {
     console.log(error);
   }
-}
-
-function futureWeather(forecast) {
-  console.log(forecast.forecastday[0]);
-  console.log(forecast.forecastday[1]);
-  console.log(forecast.forecastday[2]);
 }
