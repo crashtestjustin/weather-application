@@ -64,7 +64,7 @@ export function body() {
   const lowTemp = createDiv("low-temp");
   currentWeatherDiv.append(
     location,
-    time,
+    // time,
     currentWeatherIcon,
     weatherCondition,
     currentTemperature,

@@ -25,7 +25,7 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
   locationName.textContent = locationData.name;
 
   const locationTime = document.querySelector(".city-time");
-  locationTime.textContent = locationData.localtime.slice(10);
+  //   locationTime.textContent = locationData.localtime.slice(10);
 
   const currentWeatherIcon = document.querySelector(".current-icon");
   currentWeatherIcon.src = forecastData.forecastday[0].day.condition.icon;
