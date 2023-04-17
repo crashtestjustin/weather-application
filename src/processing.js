@@ -40,13 +40,13 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
   if (weathermode.includes("C")) {
     currentTemp.textContent = `${currentWeather.temp_c}°C`;
     feelsLike.textContent = `Feels Like: ${currentWeather.feelslike_c}°C`;
-    highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_c}°C`;
-    lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_c}°C`;
+    highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_c}°C / L: ${forecastData.forecastday[0].day.mintemp_c}°C`;
+    // lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_c}°C`;
   } else {
     currentTemp.textContent = `${currentWeather.temp_f}°F`;
     feelsLike.textContent = `Feels Like: ${currentWeather.feelslike_f}°F`;
-    highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_f}°F`;
-    lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
+    highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_f}°F / L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
+    // lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
   }
 }
 
@@ -57,7 +57,7 @@ export function setForecastedWeather(forecast) {
   const twoDaysForecastEls = twoDaysWeather.querySelectorAll("div");
   const tomIcon = tomorrowWeather.querySelector(".tomorrow-icon");
   const twoDaysIcon = twoDaysWeather.querySelector(".two-days-icon");
-  console.log(forecast.forecastday);
+
   tomIcon.src = forecast.forecastday[1].day.condition.icon;
   twoDaysIcon.src = forecast.forecastday[2].day.condition.icon;
 
@@ -121,6 +121,9 @@ export function getTodayForecast(forecast) {
   const hourTemps = document.querySelectorAll(".hour-temp");
   const hourIcon = document.querySelectorAll(".hour-icon");
   const hourTime = document.querySelectorAll(".hour-time");
+  const forecastedWeatherTitle = document.querySelector(".today-div");
+
+  forecastedWeatherTitle.textContent = `Hourly Forecast: ${forecast.forecastday[0].date}`;
 
   let tempC;
   weathermode.includes("C") ? (tempC = true) : (tempC = false);

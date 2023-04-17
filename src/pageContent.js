@@ -54,6 +54,8 @@ export function body() {
   const mainSection = createDiv("main");
 
   const currentWeatherDiv = createDiv("current-weather");
+  const today = createDiv("today");
+  today.textContent = "TODAY";
   const location = createDiv("city-location");
   const time = createDiv("city-time");
   const currentWeatherIcon = createImg("current-icon");
@@ -63,6 +65,7 @@ export function body() {
   const highTemp = createDiv("high-temp");
   const lowTemp = createDiv("low-temp");
   currentWeatherDiv.append(
+    today,
     location,
     // time,
     currentTemperature,
@@ -76,11 +79,14 @@ export function body() {
   mainSection.appendChild(currentWeatherDiv);
 
   const todayForecastedWeatherDiv = createDiv("forecasted-weather");
-  todayForecastedWeatherDiv.textContent = `Today Forecasted Weather`;
+  const titleDiv = createDiv("today-div");
+  todayForecastedWeatherDiv.appendChild(titleDiv);
+
+  const hourlyForecast = createDiv("hourly-forecast");
 
   for (let i = 0; i < 24; i++) {
     const hourDiv = createDiv("hour");
-    todayForecastedWeatherDiv.appendChild(hourDiv);
+    hourlyForecast.appendChild(hourDiv);
     const hourIcon = createImg("hour-icon");
     const hourTemp = createDiv("hour-temp");
     const hourTime = createDiv("hour-time");
@@ -88,6 +94,7 @@ export function body() {
     hourDiv.appendChild(hourTemp);
     hourDiv.appendChild(hourTime);
   }
+  todayForecastedWeatherDiv.appendChild(hourlyForecast);
   mainSection.appendChild(todayForecastedWeatherDiv);
 
   const upcomingForecastedWeatherDiv = createDiv("upcoming-forecasted-weather");
