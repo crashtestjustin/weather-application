@@ -129,10 +129,7 @@ button.set-f {
   white-space: nowrap;
   background-color: var(--day-element-border);
   max-width: 600px;
-}
-
-.forecasted-weather > div {
-  /* margin-left: 5px; */
+  display: grid;
 }
 
 .hourly-forecast {
@@ -171,7 +168,7 @@ button.set-f {
   display: none;
 }
 
-@media only screen and (max-width: 718px) {
+@media only screen and (max-width: 380px) {
   .forecasted-weather {
     max-width: calc(100vw - 24%);
     overflow-x: scroll;
@@ -180,7 +177,20 @@ button.set-f {
 }
 
 @media only screen and (max-width: 370px) {
+  .application {
+    padding: 5% 3%;
+  }
+
   .current-weather {
-    padding: 20px 15px;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+
+  .today {
+    font-size: 1rem;
+  }
+
+  .current-icon {
+    width: 64px;
   }
 }
