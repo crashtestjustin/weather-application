@@ -50,23 +50,45 @@ button.set-f {
   transform: scale(0.98);
 }
 
+.forecasted-weather {
+  margin-top: 1.5rem;
+}
+
 .main {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .current-weather {
   display: grid;
-  grid-template: repeat(5, min-content) / 1fr 1fr;
+  grid-template: repeat(5, min-content) / repeat(2, minmax(max-content, 300px));
   justify-items: center;
+  border: 6px solid var(--day-element-border);
+  border-radius: 8px;
+  padding: 5px;
 }
 
-.city-location {
-  grid-column: 1 / 3;
+.current-weather .weather-condition,
+.current-weather .high-temp {
+  margin-bottom: 8px;
+}
+
+.current-temp,
+.high-temp {
+  align-self: center;
+  justify-self: end;
+  margin-right: 10px;
+}
+
+.low-temp,
+.current-icon {
+  justify-self: start;
+  margin-left: 10px;
 }
 
 .current-icon {
-  grid-row: 2 / 3;
-  grid-column: 1 / 3;
+  grid-column: 2 / 3;
 }
 
 .weather-condition {
@@ -75,20 +97,10 @@ button.set-f {
 }
 
 .city-location,
-.current-icon {
+.feels-like {
+  grid-column: 1 / 3;
   display: flex;
   justify-self: center;
-}
-
-/* .city-time,
-.current-temp,
-.high-temp {
-  justify-self: end;
-} */
-
-.current-weather,
-.forecasted-weather {
-  margin: 0 0 10px 0;
 }
 
 .footer {

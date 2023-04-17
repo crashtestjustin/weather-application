@@ -65,12 +65,12 @@ export function body() {
   currentWeatherDiv.append(
     location,
     // time,
+    currentTemperature,
     currentWeatherIcon,
     weatherCondition,
-    currentTemperature,
-    feelsLike,
     highTemp,
-    lowTemp
+    lowTemp,
+    feelsLike
   );
 
   mainSection.appendChild(currentWeatherDiv);
