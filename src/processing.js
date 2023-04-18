@@ -71,21 +71,21 @@ export function setForecastedWeather(forecast) {
       if (tempC) {
         tomForecastEls[
           i
-        ].textContent = `H: ${forecast.forecastday[1].day.maxtemp_c}°C`;
+        ].textContent = `${forecast.forecastday[1].day.maxtemp_c}`;
       } else {
         tomForecastEls[
           i
-        ].textContent = `H: ${forecast.forecastday[1].day.maxtemp_f}°F`;
+        ].textContent = `${forecast.forecastday[1].day.maxtemp_f}`;
       }
     } else if (i === 2) {
       if (tempC) {
         tomForecastEls[
           i
-        ].textContent = `L: ${forecast.forecastday[1].day.mintemp_c}°C`;
+        ].textContent = `${forecast.forecastday[1].day.mintemp_c}`;
       } else {
         tomForecastEls[
           i
-        ].textContent = `L: ${forecast.forecastday[1].day.mintemp_f}°F`;
+        ].textContent = `${forecast.forecastday[1].day.mintemp_f}`;
       }
     }
   }
@@ -97,21 +97,21 @@ export function setForecastedWeather(forecast) {
       if (tempC) {
         twoDaysForecastEls[
           i
-        ].textContent = `H: ${forecast.forecastday[2].day.maxtemp_c}°C`;
+        ].textContent = `${forecast.forecastday[2].day.maxtemp_c}`;
       } else {
         twoDaysForecastEls[
           i
-        ].textContent = `H: ${forecast.forecastday[2].day.maxtemp_f}°F`;
+        ].textContent = `${forecast.forecastday[2].day.maxtemp_f}`;
       }
     } else if (i === 2) {
       if (tempC) {
         twoDaysForecastEls[
           i
-        ].textContent = `L: ${forecast.forecastday[2].day.mintemp_c}°C`;
+        ].textContent = `${forecast.forecastday[2].day.mintemp_c}`;
       } else {
         twoDaysForecastEls[
           i
-        ].textContent = `L: ${forecast.forecastday[2].day.mintemp_f}°F`;
+        ].textContent = `${forecast.forecastday[2].day.mintemp_f}`;
       }
     }
   }
