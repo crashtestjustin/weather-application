@@ -246,7 +246,6 @@ button.set-f {
   place-items: center;
   position: fixed;
   height: 100%;
-  display: none;
 }
 
 .loading-spinner {

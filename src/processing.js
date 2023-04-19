@@ -21,8 +21,10 @@ export function setWeatherMode(newMode) {
 }
 
 export function setCurrentWeather(currentWeather, locationData, forecastData) {
+  console.log(currentWeather);
+  console.log(locationData);
   const locationName = document.querySelector(".city-location");
-  locationName.textContent = locationData.name;
+  locationName.textContent = `${locationData.name}, ${locationData.region}`;
 
   const locationTime = document.querySelector(".city-time");
   //   locationTime.textContent = locationData.localtime.slice(10);
