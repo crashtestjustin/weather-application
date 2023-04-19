@@ -5,8 +5,8 @@ import {
 } from "./processing";
 
 export let previousSearch = ["New York City"];
-
 export async function getForecastedWeather(locationQuery) {
+  toggleLoadingSpinner();
   let searchQuery;
   if (locationQuery === undefined || locationQuery === "") {
     searchQuery = previousSearch;
@@ -31,5 +31,25 @@ export async function getForecastedWeather(locationQuery) {
     getTodayForecast(weatherData.forecast);
   } catch (error) {
     console.log(error);
+  } finally {
+    toggleLoadingSpinner();
+  }
+}
+
+export function toggleLoadingSpinner() {
+  const overlay = document.querySelector(".overlay");
+  const spinner = document.querySelector(".loading-content");
+
+  console.log(overlay);
+  console.log(spinner);
+
+  if (spinner.style.display === "none") {
+    console.log("set to BLOCK");
+    overlay.style.display = "block";
+    spinner.style.display = "grid";
+  } else {
+    console.log("set to NONE");
+    overlay.style.display = "none";
+    spinner.style.display = "none";
   }
 }

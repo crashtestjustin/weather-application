@@ -1,4 +1,11 @@
-import { header, body, footer } from "./pageContent";
+import { header, body, footer, loadingContainer } from "./pageContent";
+import { toggleLoadingSpinner } from "./weatherApi";
+
+function loadingDiv() {
+  const main = loadingContainer();
+
+  return main;
+}
 
 function application() {
   const app = document.querySelector(".application");
@@ -15,4 +22,6 @@ function application() {
   return app;
 }
 
+loadingDiv();
 application();
+toggleLoadingSpinner();

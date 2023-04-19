@@ -7,6 +7,14 @@ import {
 import { getForecastedWeather } from "./weatherApi";
 import { setWeatherMode } from "./processing";
 
+export function loadingContainer() {
+  const loadingCont = document.querySelector(".loading-content");
+  const loadingSpinner = createDiv("loading-spinner");
+  loadingCont.appendChild(loadingSpinner);
+
+  return loadingCont;
+}
+
 export function header() {
   const mainSection = createDiv("header");
 

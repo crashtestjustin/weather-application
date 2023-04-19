@@ -5,7 +5,9 @@
   --main-font: "Space Grotesk", sans-serif;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
   background-color: var(--day-bg-color);
   font-family: var(--main-font);
@@ -13,7 +15,7 @@ body {
 
 .application {
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 0.4fr auto minmax(0, 1fr);
   min-height: 100%;
 }
 
@@ -26,7 +28,7 @@ body {
 
 .header {
   display: grid;
-  grid-template: 1fr 1fr / 2fr 1fr 1fr;
+  grid-template: repeat(2, max-content) / 2fr 1fr 1fr;
   row-gap: 0.5rem;
   column-gap: 1rem;
   margin-top: 5%;
@@ -180,6 +182,7 @@ button.set-f {
 
 .forecast-title {
   justify-self: start;
+  grid-column: 1 / 3;
 }
 
 .tomorrow-forecast,
@@ -226,10 +229,59 @@ button.set-f {
   background-color: var(--day-element-border);
 }
 
+/* loading spinner */
+
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #bcbcbc7f;
+  display: none;
+}
+
+.loading-content {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  place-items: center;
+  position: fixed;
+  height: 100%;
+  display: none;
+}
+
+.loading-spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+  margin: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* media queries */
+
 @media only screen and (max-width: 412px) {
+  .application {
+    grid-template-rows: 0.3fr auto minmax(0, 1fr);
+  }
+
   .header,
   .main {
     margin: 0 3%;
+  }
+
+  .header {
+    margin-top: 3%;
   }
 
   .current-weather,
