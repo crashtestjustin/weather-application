@@ -130,7 +130,7 @@ export function body() {
 
 export function footer() {
   const mainSection = createDiv("footer");
-  mainSection.textContent = "Footer";
+  mainSection.textContent = "Almost as useful as looking out the window.";
 
   return mainSection;
 }

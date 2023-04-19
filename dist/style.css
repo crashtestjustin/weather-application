@@ -13,9 +13,13 @@ body {
 
 .application {
   display: grid;
-  grid-template-rows: 1fr auto 100px;
-  padding: 5%;
+  grid-template-rows: 1fr auto 1fr;
   min-height: 100%;
+}
+
+.header,
+.main {
+  margin: 0 5%;
 }
 
 /* Search Bar Styling */
@@ -25,6 +29,7 @@ body {
   grid-template: 1fr 1fr / 2fr 1fr 1fr;
   row-gap: 0.5rem;
   column-gap: 1rem;
+  margin-top: 5%;
 }
 
 .header > input {
@@ -42,6 +47,7 @@ body {
   height: 40px;
   background-color: var(--day-button-bg-color);
   color: #ffffff;
+  cursor: pointer;
 }
 
 button.set-f {
@@ -158,6 +164,7 @@ button.set-f {
 .forecasted-weather > div,
 .upcoming-forecasted-weather > div {
   margin-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 /* Next two days forecast block */
@@ -168,7 +175,6 @@ button.set-f {
   font-weight: 550;
   justify-items: center;
   display: grid;
-  /* grid-template: min-content auto / repeat(2, minmax(max-content, 300px)); */
   grid-template: min-content auto / repeat(2, minmax(121px, 300px));
 }
 
@@ -187,7 +193,6 @@ button.set-f {
 
 .tom-low,
 .two-days-low {
-  /* font-weight: 400; */
   color: #4f4f4f;
 }
 
@@ -214,12 +219,17 @@ button.set-f {
 /* Footer */
 
 .footer {
-  margin-top: auto;
+  align-self: end;
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;
+  background-color: var(--day-element-border);
 }
 
 @media only screen and (max-width: 412px) {
-  .application {
-    padding: 5% 3%;
+  .header,
+  .main {
+    margin: 0 3%;
   }
 
   .current-weather,
