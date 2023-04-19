@@ -4,7 +4,5 @@ First application using an API to pull in live weather data from an external sou
 
 To DO List:
 
-- add detailed today forecast of weather
-- add intial styling to main div and footer
-- update styling to include icons
 - add loading animation to page or weather elements
+- change background color and element colors depending on the time of day at locations
