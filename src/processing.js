@@ -1,4 +1,5 @@
 import { getForecastedWeather } from "./weatherApi";
+import { getCode } from "country-list";
 export let weathermode = ["C"];
 
 export function setWeatherMode(newMode) {
@@ -24,7 +25,8 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
   console.log(currentWeather);
   console.log(locationData);
   const locationName = document.querySelector(".city-location");
-  locationName.textContent = `${locationData.name}, ${locationData.region}`;
+  const countryCode = convertToCountryCode(locationData.country);
+  locationName.textContent = `${locationData.name}, ${countryCode}`;
 
   const locationTime = document.querySelector(".city-time");
   //   locationTime.textContent = locationData.localtime.slice(10);
@@ -43,12 +45,10 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
     currentTemp.textContent = `${currentWeather.temp_c}°C`;
     feelsLike.textContent = `Feels Like: ${currentWeather.feelslike_c}°C`;
     highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_c}°C / L: ${forecastData.forecastday[0].day.mintemp_c}°C`;
-    // lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_c}°C`;
   } else {
     currentTemp.textContent = `${currentWeather.temp_f}°F`;
     feelsLike.textContent = `Feels Like: ${currentWeather.feelslike_f}°F`;
     highTemp.textContent = `H: ${forecastData.forecastday[0].day.maxtemp_f}°F / L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
-    // lowTemp.textContent = `L: ${forecastData.forecastday[0].day.mintemp_f}°F`;
   }
 }
 
@@ -139,4 +139,10 @@ export function getTodayForecast(forecast) {
       hourTemps[i].textContent = `${forecast.forecastday[0].hour[i].temp_f}°F`;
     }
   }
+}
+
+function convertToCountryCode(country) {
+  const code = getCode(country);
+
+  return code;
 }

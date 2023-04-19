@@ -108,7 +108,7 @@ export function body() {
   const upcomingForecastedWeatherDiv = createDiv("upcoming-forecasted-weather");
 
   const forecastTitleDiv = createDiv("forecast-title");
-  forecastTitleDiv.textContent = `Future Forecast`;
+  forecastTitleDiv.textContent = `Two-Day Forecast`;
 
   const tomorrowForecast = createDiv("tomorrow-forecast");
   const tomIcon = createImg("tomorrow-icon");
