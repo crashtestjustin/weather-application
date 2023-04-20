@@ -26,7 +26,11 @@ export function setCurrentWeather(currentWeather, locationData, forecastData) {
   console.log(locationData);
   const locationName = document.querySelector(".city-location");
   const countryCode = convertToCountryCode(locationData.country);
-  locationName.textContent = `${locationData.name}, ${countryCode}`;
+  if (countryCode !== undefined) {
+    locationName.textContent = `${locationData.name}, ${countryCode}`;
+  } else {
+    locationName.textContent = `${locationData.name}`;
+  }
 
   const locationTime = document.querySelector(".city-time");
   //   locationTime.textContent = locationData.localtime.slice(10);
@@ -145,4 +149,16 @@ function convertToCountryCode(country) {
   const code = getCode(country);
 
   return code;
+}
+
+export function handleError(error) {
+  const errorMessage = document.querySelector(".error-message");
+  const input = document.querySelector(".header > input");
+  if (error !== undefined) {
+    errorMessage.textContent = "Could not find location.";
+    input.classList.add("error-input");
+  } else {
+    errorMessage.textContent = "";
+    input.classList.remove("error-input");
+  }
 }

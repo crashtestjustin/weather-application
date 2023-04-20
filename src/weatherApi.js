@@ -2,6 +2,7 @@ import {
   setCurrentWeather,
   setForecastedWeather,
   getTodayForecast,
+  handleError,
 } from "./processing";
 
 export let previousSearch = ["New York City"];
@@ -29,8 +30,10 @@ export async function getForecastedWeather(locationQuery) {
     );
     setForecastedWeather(weatherData.forecast);
     getTodayForecast(weatherData.forecast);
+    handleError();
   } catch (error) {
     console.log(error);
+    handleError(error);
   } finally {
     toggleLoadingSpinner();
   }

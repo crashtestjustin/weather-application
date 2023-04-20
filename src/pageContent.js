@@ -18,6 +18,9 @@ export function loadingContainer() {
 export function header() {
   const mainSection = createDiv("header");
 
+  const errorMessage = createDiv("error-message");
+  mainSection.appendChild(errorMessage);
+
   const searchBar = createInput(
     "text",
     "search-bar",
@@ -39,7 +42,7 @@ export function header() {
     getForecastedWeather(searchBar.value);
   });
 
-  const celcius = createButton("set-c", "C");
+  const celcius = createButton("set-c", "°C");
   celcius.selected = true;
   mainSection.appendChild(celcius);
 
@@ -47,7 +50,7 @@ export function header() {
     setWeatherMode("C");
   });
 
-  const farenheit = createButton("set-f", "F");
+  const farenheit = createButton("set-f", "°F");
   farenheit.selected = false;
   mainSection.appendChild(farenheit);
 
